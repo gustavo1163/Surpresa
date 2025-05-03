@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Uma Surpresinha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; background-color: #f6f6f6; text-align: center; padding: 2em; }
+        .hidden { display: none; }
+        button { padding: 10px 20px; margin: 1em; font-size: 16px; cursor: pointer; }
+        img { max-width: 90%; height: auto; border-radius: 10px; margin: 1em 0; }
+    </style>
+</head>
+<body>
+    <audio autoplay loop controls style="display:none">
+        <source src="https://p.scdn.co/mp3-preview/372d06351bb94788b6673a93f4973e8c8f1c94c4?cid=d8a5ed958d274c2e8ee717e6a4b0971d" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <div id="step1">
+        <h1>Oi...</h1>
+        <p>Tenho algo especial pra te mostrar.</p>
+        <button onclick="nextStep(1)">Começar</button>
+    </div>
+
+    <div id="step2" class="hidden">
+        <h2>Vamos começar com esse quebra-cabeça simples:</h2>
+        <img src="assets/foto1.jpg" alt="Puzzle">
+        <p>Ok, não é interativo, mas olha essa foto e clica pra seguir!</p>
+        <button onclick="nextStep(2)">Próximo</button>
+    </div>
+
+    <div id="step3" class="hidden">
+        <h2>Qual dessas é verdade?</h2>
+        <button onclick="nextStep(3)">A gente se conheceu na padaria</button><br>
+        <button onclick="nextStep(3)">Você é a pessoa que me faz sorrir todo dia (essa é óbvia)</button>
+    </div>
+
+    <div id="step4" class="hidden">
+        <h2>Ache o coração escondido!</h2>
+        <p>(Toque na imagem abaixo)</p>
+        <img src="assets/foto2.jpg" onclick="nextStep(4)">
+    </div>
+
+    <div id="step5" class="hidden">
+        <h1>Chegamos ao final...</h1>
+        <img src="assets/foto3.jpg" alt="Final">
+        <h2>Quer namorar comigo?</h2>
+        <button onclick="alert('Eu sabia que você ia dizer sim!')">Sim!</button>
+        <button onclick="alert('Você não tinha muita escolha mesmo, né?')">Sim, óbvio!</button>
+    </div>
+
+    <script>
+        function nextStep(n) {
+            document.getElementById("step" + n).classList.add("hidden");
+            document.getElementById("step" + (n + 1)).classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
